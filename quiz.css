@@ -1,0 +1,92 @@
+* {
+    box-sizing: border-box;
+}
+
+ body {
+background-color: #292e49;  /* fallback for old browsers */
+background-color: -webkit-linear-gradient(to bottom, #292E49, #536976);  /* Chrome 10-25, Safari 5.1-6 */
+background-color: linear-gradient(to bottom, #292E49, #536976); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+
+.quiz-questions {
+    clear:both;
+}
+
+h1 {
+    color: white;
+    font-size: 55px;
+    text-align: center;
+    height: 125px;
+    
+}
+
+
+#start {
+    display: block;
+    height: 300px;
+    width: 300px;
+    border-radius: 50%;
+    border: 1px solid red;
+    font-size: 50px;
+    border: 10px solid dimgray ;
+    background-color: #292e49;
+    color: white;
+    font-size: 25;
+    float: center;
+    margin: 0 auto;
+    }
+
+
+.ask {
+    background-color: #292e49;
+    width: 100%;
+}
+
+.quiz-questions{
+    
+    
+}
+
+.answer-one {
+    background-color: red;
+    width: 25%;
+    height: 500px;
+    display: inline-block;
+    float: left;
+    
+
+}
+
+.answer-two {
+    background-color: white;
+    width: 25%;
+    float: left;
+    height: 500px;
+    border: 1px solid #292e49;
+    
+}
+
+.answer-three{
+    background-color: green;
+    width: 25%;
+    height: 500px;
+    float: left;
+}
+
+.answer-four {
+    background-color: yellow;
+    width: 25%;
+    height: 500px;
+    float: left;
+}
+
+.feedback {
+    color: white;
+}
+
+#quiz-results {
+    color: white;
+    text-align: center;
+    font-size: 22px;
+}
