@@ -3,6 +3,9 @@
 $(document).ready(function(){
     $('.quiz-questions').hide();
     $("#nextQuestion").hide();
+    $("#quiz-results").hide();
+   
+   
 });
 
 
@@ -22,12 +25,12 @@ questions:[
  correctAns: 1960},
  
 
- {title: "Who was the first Dallas Cowyboy to win the NFL MVP Award?",
+ {title: "Who was the first Dallas Cowboy to win the NFL MVP Award?",
  choices: ["Emmit Smith","Randy White","Bob Lilly","Roger Staubach"],
  quesNum: 2,
  correctAns: "Emmit Smith"},
 
- {title: "What Dallas Cowboy holds the record passes to start a career without an incerption?",
+ {title: "What Dallas Cowboy holds the record passes to start a career without an interception?",
  choices: ["Dak Prescott","Tony Romo","Roger Staubach","Troy Aikman"],
  quesNum: 3,
  correctAns: "Dak Prescott"},
@@ -37,7 +40,7 @@ questions:[
  quesNum: 4,
  correctAns: "Tom Landry"},
     
- {title: "Who was the first Cowboys coach who didn't take team to Super Bowl",
+ {title: "Who was the first Cowboys coach who didn't take team to Super Bowl?",
  choices: ["Chan Gailey","Wade Phillips","Barry Switzer","Dave Campo"],
  quesNum: 5,
  correctAns: "Chan Gailey"},
@@ -45,10 +48,10 @@ questions:[
  {title: "What was added to the Dallas Cowboy Logo in 1964?",
  choices: ["A Gray Circle","A White line & Border","The Word Cowboys","A Mustang"],
  quesNum: 6,
- correctAns: 1},
+ correctAns: "A White line & Border"},
     
- {title: "In 2016, which Wide Reciever led the cowboys in receptions?",
- choices: ["Cole Beasley","Jason Witten","Ezeiel Elliot","Dez Bryant"],
+ {title: "In 2016, which Wide Receiver led the cowboys in receptions?",
+ choices: ["Cole Beasley","Jason Witten","Ezekiel Elliot","Dez Bryant"],
  quesNum: 7,
  correctAns: "Cole Beasley"},
     
@@ -75,19 +78,23 @@ $("#start").on("click", function (){
     event.preventDefault();
     $("#start-quiz").hide();
     $(".quiz-questions").show();
+    
+
     renderQuestion();
 
 });
 // will render Question
 function renderQuestion(){
+  
     let question= state.questions[state.currentQuestionIndex];
+
     $(".questionTitle").text(question.title);
     
     //clear out previous questions and answers
     $(".choices").html("");
     
     question.choices.forEach(function(choice) {
-        $(".choices").append(`<div class="answer-two">
+        $(".choices").append(`<div class="answer-one">
                                   <label>
                                   <input type="radio" name="radio" value="${choice}"/>
                                     <span>${choice}</span>
@@ -98,15 +105,17 @@ function renderQuestion(){
 
  // this will listen for when user selects answer and clicks submits  
 $("#submitUserGuess").on("click",function() {
-    
+   
     let checkedAnswer=$('input[name=radio]:checked').val();
       if (checkedAnswer) {
           
           if (checkedAnswer == (state.questions[state.currentQuestionIndex].correctAns)){
               $(".feedback").text("That is the correct answer");
               $("#submitUserGuess").hide();
+            
               state.correctAnswers++;
               $(".answeredCorrectly").html(" You have answered " + state.correctAnswers + " correctly");
+              $(".questionNumber").html(state.questions[state.currentQuestionIndex].quesNum + " out of 10");
               $("#nextQuestion").show();
               $(".feedback").show();
 
@@ -114,7 +123,9 @@ $("#submitUserGuess").on("click",function() {
           else {
               $(".feedback").text("That is the incorrect answer. The correct answer is" + " " +(state.questions[state.currentQuestionIndex].correctAns) );
               $("#submitUserGuess").hide();
+            
               $(".answeredCorrectly").html(" You have answered " + state.correctAnswers + " correctly");
+              $(".questionNumber").html("Question " + state.questions[state.currentQuestionIndex].quesNum + " out of 10");
               $("#nextQuestion").show();
               $(".feedback").show();
           }
@@ -123,6 +134,7 @@ $("#submitUserGuess").on("click",function() {
     else {
         alert("Please Select An Answer");
     }
+    
 });
 
 // user clicks next question and will bring up next series of Q and A
@@ -143,15 +155,32 @@ $("#nextQuestion").on("click", function() {
                                     <h1> Quiz Results</h1>
                                     <h2> You Got </h2>
                                     ${state.correctAnswers}
-                                    <h2> Correctly </h2>
+                                    <h2> Correct! </h2>
                                     </div>`)
-   }
-    
-});
-    
+       if (state.correctAnswers > 7){
+           alert("You are a winner!")
+       }
+       else {
+           alert ("Better Luck Next Time!")
+       }
+        $("#quiz-results").show();
+       
+       
+        $("#startOver").on("click", function() {
+            $("#start-quiz").show();
+            $('.quiz-questions').hide();
+            $("#nextQuestion").hide();
+            $("#quiz-results").hide();
+            state.currentQuestionIndex = 0
+       });
+        
+               
+                    
 
+    }
+}); 
     
-
+     
 // user will select answer from radio button 
 //have event listener and update index property so it 
 

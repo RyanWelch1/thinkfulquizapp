@@ -1,46 +1,41 @@
 <!DOCTYPE html>
-<html lang="">
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>Dallas Cowboy Quiz</title>
     
     <link rel="stylesheet" href="quiz.css">
     <link rel="stylesheet" href="normalize.css">
 </head>
 
 <body>
-  <div id="start-quiz">
-     <h1> How Well Do You Know The Dallas Cowboys?</h1>
-     <button id="start" class="start-button" type="button">Game On!</button>
-  </div>
+ <main role="main">
   
-  <div class="quiz-questions">
-            <div class="ask">
-                   <h1 class="questionTitle">
-                   </h1>
-
-                 <div class="choices"></div>
-                 <div class="results">
-                        <button id="submitUserGuess">Get Results</button>
-                 </div>
-                 <div class="feedback"></div>
-            </div>
-
-          <div id="quiz-feedback">
-
-          </div>
-
-          <div>
-              <h2 class="answeredCorrectly"></h2>
-          </div>
-            <button id="nextQuestion">Next Question</button>
-
-  </div>
+   <section id="start-quiz" role="start">
+     <header role="banner"> How Well Do You Know The Dallas Cowboys?</header>
+     <button id="start" class="start-button" type="button">Game On!</button>
+   </section>
+  
+   <section class="quiz-questions" role="questions">
+    <h1 class="questionTitle"></h1>
+        <div class="choices"></div>
+        <div class="results">
+            <button id="submitUserGuess">Get Results</button>
+        </div>
+        <div class="feedback"></div>
+        <h2 class="answeredCorrectly"></h2>
+        <div class="questionNumber"></div>
+        <button id="nextQuestion">Next Question</button>
+   </section>
     
-  <div id="quiz-results"></div>
-    
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>  
-  <script src="quiz.js"></script>
+  <section id="quiz-results" role="results">
+  <button id="startOver">Start Over</button>
+  </section>
+  <img class="starone" src="/dallas-cowboys-logo-transparent.png">
+
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>  
+          <script src="quiz.js"></script>
+  </main>
 </body>
 </html>
