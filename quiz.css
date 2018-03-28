@@ -49,6 +49,7 @@ h1, header{
     font-size: 25;
     float: center;
     margin: 0 auto;
+    text-align: center;
     }
 
 #start:hover {
@@ -212,6 +213,8 @@ and (max-width: 736px){
         
         width: 25%;
         height: 75px;
+        font-size: .75em;
+        
         
     }
     
@@ -226,9 +229,11 @@ and (max-width: 736px){
     }
     .feedback {
         font-size: 2.0em;
-        display: inline-block;
-        margin: auto;
+        display: block;
         padding-top: 20px;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
     }
     
     #startOver {

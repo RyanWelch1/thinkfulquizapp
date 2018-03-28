@@ -14,23 +14,29 @@
   
    <section id="start-quiz" role="start">
      <header role="banner"> How Well Do You Know The Dallas Cowboys?</header>
-     <button id="start" class="start-button" type="button">Game On!</button>
+     <button id="start" role="button" class="start-button" type="button">Game On!</button>
    </section>
   
    <section class="quiz-questions" role="questions">
     <h1 class="questionTitle"></h1>
-        <div class="choices"></div>
+        <form>
+            <fieldset>
+        
+                <div class="choices"></div>
+                <label for="radio"></label>
+            </fieldset>
+        </form>
         <div class="results">
-            <button id="submitUserGuess">Get Results</button>
+            <button id="submitUserGuess" role="button">Get Results</button>
         </div>
         <div class="feedback"></div>
         <h2 class="answeredCorrectly"></h2>
         <div class="questionNumber"></div>
-        <button id="nextQuestion">Next Question</button>
+        <button id="nextQuestion" role="button">Next Question</button>
    </section>
     
   <section id="quiz-results" role="results">
-  <button id="startOver">Start Over</button>
+  <button id="startOver" role="button">Start Over</button>
   </section>
   <img class="starone" src="dallas-cowboys-logo-transparent.png">
         
@@ -41,3 +47,6 @@
   </main>
 </body>
 </html>
+
+
+ 
